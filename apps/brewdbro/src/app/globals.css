@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/* ── BrewdBro brand tokens — "Warm Café × Liquid Glass" ───────────────── */
+@theme {
+  /* brand — OrangeRed · Deep Teal · Dark Brown · Warm Cream */
+  --color-cream: #faf5e8;
+  --color-foam: #fffdf8;
+  --color-latte: #efe6d3;
+  --color-sand: #e2d6bd;
+  --color-flame: #ff4500;
+  --color-flame-deep: #d93a00;
+  --color-teal: #005c61;
+  --color-teal-deep: #00474b;
+  --color-mocha: #6f4e37;
+  --color-roast: #3a2418;
+  --color-espresso: #261611;
+  --color-char: #160c08;
+  --color-taupe: #6f5d4e;
+  --color-berry: #dc2626;
+
+  /* product-material accents only (not UI theme) */
+  --color-blush: #d98a8f;
+  --color-lilac: #bfa9dd;
+  --color-mint: #a8e6cf;
+
+  --font-display: var(--font-display-src), system-ui, sans-serif;
+  --font-serif: var(--font-serif-src), Georgia, serif;
+  --font-sans: var(--font-sans-src), system-ui, sans-serif;
+  --font-mono: var(--font-mono-src), ui-monospace, monospace;
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-espresso);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* The signature iridescent gradient — used sparingly */
+.iridescent {
+  background: linear-gradient(110deg, #ec6f9e 0%, #bfa9dd 45%, #a8e6cf 100%);
+}
+.iridescent-text {
+  background: linear-gradient(110deg, #ec6f9e 0%, #bfa9dd 50%, #8f5a27 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* brand accent gradient — OrangeRed → Deep Teal */
+.warm-text {
+  background: linear-gradient(105deg, #ff4500 0%, #ff6a33 45%, #005c61 115%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.flame-text {
+  background: linear-gradient(100deg, #ff4500 0%, #ff7a45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* editorial display — Fraunces */
+.editorial {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+.glass {
+  background: color-mix(in srgb, #fff 55%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--color-flame);
+  color: #fff;
+  box-shadow: 0 10px 30px -8px rgba(255, 69, 0, 0.5);
+}
+.btn-primary:hover {
+  background: var(--color-flame-deep);
+  box-shadow: 0 14px 38px -8px rgba(255, 69, 0, 0.55);
+}
+.btn-dark {
+  background: var(--color-espresso);
+  color: var(--color-cream);
+}
+.btn-dark:hover {
+  background: #2a1d15;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-espresso);
+  border: 1px solid var(--color-sand);
+}
+.btn-ghost:hover {
+  background: #fff;
+}
+
+.card-shadow {
+  box-shadow: 0 12px 40px -12px rgba(28, 20, 15, 0.18);
+}
+
+.input {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid var(--color-sand);
+  background: #fff;
+  padding: 0.85rem 1rem;
+  font-size: 16px;
+  color: var(--color-espresso);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input::placeholder {
+  color: color-mix(in srgb, var(--color-taupe) 70%, transparent);
+}
+.input:focus {
+  border-color: var(--color-flame);
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: var(--color-flame);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand);
+  border-radius: 9999px;
+}
